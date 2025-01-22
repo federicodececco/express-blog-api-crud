@@ -1,33 +1,20 @@
 const express = require("express");
 const arr = require("../data/postsData");
+const controller = require("../controllers/postsControllers");
 const router = express.Router();
 
 //index
-router.get("/", (rq, res) => {
-  res.json({
-    title: "Lista dei Post",
-    posts: arr,
-  });
-});
+router.get("/", controller.index);
 //show
-router.get("/:id", (req, res) => {
-  res.json(arr[req.params.id]);
-});
+router.get("/:id", controller.show);
 //create
-router.post("/", (req, res) => {
-  res.send("Creazione del post");
-});
+router.post("/", controller.create);
 //
 router.put("/:id", (req, res) => {
   res.send("");
 });
 //modify
-router.patch("/:id", (req, res) => {
-  res.send(`Modifica del post ${req.params.id}`);
-});
+router.patch("/:id", controller.patch);
 //destroy
-router.delete("/:id", (req, res) => {
-  arr.splice(req.params.id, 1);
-  res.send(`Cancellazione del post ${req.params.id}`);
-});
+router.delete("/:id", controller.destroy);
 module.exports = router;
