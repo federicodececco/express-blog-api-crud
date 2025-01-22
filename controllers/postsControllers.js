@@ -2,10 +2,7 @@ const express = require("express");
 const arr = require("../data/postsData");
 //index
 const index = (rq, res) => {
-  res.json({
-    title: "Lista dei Post",
-    posts: arr,
-  });
+  res.json(arr);
 };
 //show
 const show = (req, res) => {
@@ -21,7 +18,8 @@ const patch = (req, res) => {
 };
 //destroy
 const destroy = (req, res) => {
+  res.status(204).send(`Cancellazione del post  ${req.params.id} `);
   arr.splice(req.params.id, 1);
-  res.send(`Cancellazione del post ${req.params.id}`);
+  console.log(arr);
 };
 module.exports = { index, create, show, patch, destroy };
