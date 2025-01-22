@@ -1,5 +1,4 @@
 const express = require("express");
-const arr = require("../data/postsData");
 const controller = require("../controllers/postsControllers");
 const router = express.Router();
 

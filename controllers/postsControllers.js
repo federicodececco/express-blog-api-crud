@@ -1,7 +1,12 @@
-const express = require("express");
 const arr = require("../data/postsData");
 //index
-const index = (rq, res) => {
+const index = (req, res) => {
+  if (req.query) {
+    console.log(req.query.tags);
+    const tag = req.query.tags;
+    const newArr = arr.filter((elm) => elm.tags.includes(tag));
+    return res.json(newArr);
+  }
   res.json(arr);
 };
 //show
