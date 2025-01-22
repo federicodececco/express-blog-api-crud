@@ -1,0 +1,23 @@
+{
+  "name": "express-blog-actual",
+  "version": "1.0.0",
+  "description": "yes",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "watch": " node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/federicodececco/express-blog-api-crud"
+  },
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/federicodececco/express-blog-api-crud"
+  },
+  "homepage": "https://github.com/federicodececco/express-blog-api-crud",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
