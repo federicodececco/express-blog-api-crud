@@ -1,4 +1,5 @@
 const arr = require("../data/postsData");
+const validate = require("../middlewares/smallValidation");
 //index
 const index = (req, res) => {
   if (req.query) {
@@ -23,8 +24,11 @@ const patch = (req, res) => {
 };
 //destroy
 const destroy = (req, res) => {
-  res.status(204).send(`Cancellazione del post  ${req.params.id} `);
+  if (!validate.validateExistance(req.params.id, arr)) {
+    return res.status(404).send("content not found");
+  }
   arr.splice(req.params.id, 1);
+  res.status(204).send(`Cancellazione del post  ${req.params.id} `);
   console.log(arr);
 };
 module.exports = { index, create, show, patch, destroy };
